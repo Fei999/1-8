@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="text" id="user" /><br />
+        <input type="text" id="pass" /><br />
+        <input type="button" value="登录" onclick="btn1()" /><br />
+        <input type="button" value="注册" onclick="btn()" /><br />
+        <script src="jquery.min.js"></script>
+        <script>
+            function btn(){
+                $.ajax({
+                    url:"http://localhost:1345/use/add",
+                    type:"post",
+                    data:{
+                        user:$("#user").val(),
+                        pass:$("#pass").val(),
+                        data:"123"
+                    },
+                    success:function(d){
+                        alert(d)
+                    },
+                    error:function(){
+                        alert("服务器错误")
+                    }
+                })
+            }
+            function btn1(){
+                $.ajax({
+                    url:"http://localhost:1345/use/sel",
+                    type:"post",
+                    data:{
+                        user:$("#user").val(),
+                        pass:$("#pass").val(),
+                        data:"123"
+                    },
+                    success:function(d){
+                        alert(d)
+                    },
+                    error:function(){
+                        alert("服务器错误")
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>
